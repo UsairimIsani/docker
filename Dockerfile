@@ -1,7 +1,6 @@
 FROM node:lts-alpine3.9
 
-CMD ["","mkdir /opt/app"]
+WORKDIR /usr/src/app
+CMD [ "node", "index.js" ]
 
-COPY . /opt/app
-
-# CMD ["bash", "cd /opt/app","node index.js"]
+COPY . .
