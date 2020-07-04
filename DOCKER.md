@@ -32,4 +32,16 @@ docker image rm --force <image_name>
 
 # To run a postgres server at port 5433. -d means in detach mode i.e terminal is freed. -e means setting env vars
 docker run -p 5433:5432 --name pgu -e POSTGRES_PASSWORD=postgres -d -v /home/<user>/docker/volume/postgres-<project>:/var/lib/postgresql/data postgres
+
+# To create a backup in formats .bak (binary) .sql .tar
+# First get into bash
+docker exec -it pgu2 bash
+# After getting into the container
+# Do as root, use -U postgres when anything has to do with postgres
+pg_dump usa > /path/to/location/usa.sql -U postgres
+pg_dump usa > /path/to/location/usa.bak -U postgres
+pg_dump usa > /path/to/location/usa.tar -U postgres
+# For Restoring
+pg_restore -d usa usa.sql
+
 ```
