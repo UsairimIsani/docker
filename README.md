@@ -85,3 +85,8 @@ docker logs hash_or_container_name
 ```
 docker run -e APP_COLOR=blue kodekloud/simple-webapp
 ```
+
+```bash
+docker build -t user_name/name_of_image:tag .
+# . means current directory
+```
